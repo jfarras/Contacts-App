@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D427011621CD381D00F4D010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427011521CD381D00F4D010 /* AppDelegate.swift */; };
-		D427011821CD381D00F4D010 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427011721CD381D00F4D010 /* MasterViewController.swift */; };
-		D427011A21CD381D00F4D010 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427011921CD381D00F4D010 /* DetailViewController.swift */; };
 		D427011D21CD381D00F4D010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D427011B21CD381D00F4D010 /* Main.storyboard */; };
 		D427011F21CD381F00F4D010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D427011E21CD381F00F4D010 /* Assets.xcassets */; };
 		D427012221CD381F00F4D010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D427012021CD381F00F4D010 /* LaunchScreen.storyboard */; };
@@ -18,6 +16,8 @@
 		D427014621CD3E5300F4D010 /* Contacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = D427014521CD3E5300F4D010 /* Contacts.plist */; };
 		D427014921CD3F1600F4D010 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427014721CD3F1600F4D010 /* Contact.swift */; };
 		D427014A21CD3F1600F4D010 /* PlistLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427014821CD3F1600F4D010 /* PlistLoader.swift */; };
+		D427014C21CD406000F4D010 /* ContactListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427014B21CD406000F4D010 /* ContactListController.swift */; };
+		D427014E21CD407400F4D010 /* ContactDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D427014D21CD407400F4D010 /* ContactDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +40,6 @@
 /* Begin PBXFileReference section */
 		D427011221CD381D00F4D010 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D427011521CD381D00F4D010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D427011721CD381D00F4D010 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		D427011921CD381D00F4D010 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D427011C21CD381D00F4D010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D427011E21CD381F00F4D010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D427012121CD381F00F4D010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +53,8 @@
 		D427014521CD3E5300F4D010 /* Contacts.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Contacts.plist; sourceTree = "<group>"; };
 		D427014721CD3F1600F4D010 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		D427014821CD3F1600F4D010 /* PlistLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistLoader.swift; sourceTree = "<group>"; };
+		D427014B21CD406000F4D010 /* ContactListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListController.swift; sourceTree = "<group>"; };
+		D427014D21CD407400F4D010 /* ContactDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +108,13 @@
 				D427014721CD3F1600F4D010 /* Contact.swift */,
 				D427014821CD3F1600F4D010 /* PlistLoader.swift */,
 				D427011521CD381D00F4D010 /* AppDelegate.swift */,
-				D427011721CD381D00F4D010 /* MasterViewController.swift */,
-				D427011921CD381D00F4D010 /* DetailViewController.swift */,
 				D427011B21CD381D00F4D010 /* Main.storyboard */,
 				D427011E21CD381F00F4D010 /* Assets.xcassets */,
 				D427012021CD381F00F4D010 /* LaunchScreen.storyboard */,
 				D427012321CD381F00F4D010 /* Info.plist */,
 				D427014521CD3E5300F4D010 /* Contacts.plist */,
+				D427014B21CD406000F4D010 /* ContactListController.swift */,
+				D427014D21CD407400F4D010 /* ContactDetailController.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -270,9 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D427014921CD3F1600F4D010 /* Contact.swift in Sources */,
-				D427011A21CD381D00F4D010 /* DetailViewController.swift in Sources */,
-				D427011821CD381D00F4D010 /* MasterViewController.swift in Sources */,
+				D427014E21CD407400F4D010 /* ContactDetailController.swift in Sources */,
 				D427014A21CD3F1600F4D010 /* PlistLoader.swift in Sources */,
+				D427014C21CD406000F4D010 /* ContactListController.swift in Sources */,
 				D427011621CD381D00F4D010 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
