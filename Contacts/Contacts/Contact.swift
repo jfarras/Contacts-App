@@ -35,6 +35,7 @@ extension Contact {
         static let image = "avatarName"
     }
     
+    
     init?(dictionary: [String: String]) {
         guard let firstNameString = dictionary[Key.firstName],
             let lastNameString = dictionary[Key.lastName],

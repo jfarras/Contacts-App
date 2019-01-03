@@ -8,9 +8,37 @@
 
 import UIKit
 
-class ContactListController: UITableViewController {
+extension Contact{
+    
+    var  firstLetter: String{
+        
+        return String(firstName.characters.first!)
+    }
+}
+extension ContactsSource{
+    static var sortedUniqueLetters: [String] {
 
-    var contacts = ContactsSource.contacts
+        let firstLetters = contacts.map{$0.firstLetter}
+        let uniqueLetters = Set(firstLetters)
+       
+        return Array(uniqueLetters).sorted()
+       
+    }
+    
+    static var sectionedContacts: [[Contact]]{
+        
+        return sortedUniqueLetters.map{ firstLetter in
+            let filterContacts = contacts.filter{$0.firstLetter == firstLetter}
+    
+            return filterContacts.sorted(by: {$0.firstName < $1.firstName})
+            }
+    }
+}
+
+
+class ContactListController: UITableViewController {
+    
+    var sectionedContacts = ContactsSource.sectionedContacts
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,19 +52,18 @@ class ContactListController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sectionedContacts.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return contacts.count
+        //var a = sectionedContacts[section].count
+       return sectionedContacts[section].count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
 
-        let contact = contacts[indexPath.row]
+        let contact = sectionedContacts[indexPath.section][indexPath.row]
         
         cell.textLabel?.text = contact.firstName
         cell.imageView?.image = contact.image
@@ -48,8 +75,8 @@ class ContactListController: UITableViewController {
             
             if let indexPath = tableView.indexPathForSelectedRow{
                 
-                let contact = contacts[indexPath.row]
-                
+                let contact = sectionedContacts[indexPath.section][indexPath.row]
+
                 guard let navigationController = segue.destination as? UINavigationController,
                     let contactDetailController = navigationController.topViewController as? ContactDetailController
                     else{return}
