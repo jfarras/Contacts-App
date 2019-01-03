@@ -59,7 +59,7 @@ class ContactListController: UITableViewController {
         //var a = sectionedContacts[section].count
        return sectionedContacts[section].count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
 
@@ -69,7 +69,9 @@ class ContactListController: UITableViewController {
         cell.imageView?.image = contact.image
         return cell
     }
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+       return "a"
+    }
     override func prepare(for segue: UIStoryboardSegue,sender: Any?){
         if segue.identifier == "showContact"{
             
